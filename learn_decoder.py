@@ -37,7 +37,9 @@ def learn_decoder(data, vectors) -> np.ndarray:
      """
      ridge = sklearn.linear_model.RidgeCV(
          alphas=[1, 10, .01, 100, .001, 1000, .0001, 10000, .00001, 100000, .000001, 1000000],
-         fit_intercept=False
+         fit_intercept=True,
+         alpha_per_target=True,
+         gcv_mode='auto'
      )
      ridge.fit(data, vectors)
      return ridge.coef_.T
