@@ -41,21 +41,3 @@ def learn_decoder(data, vectors) -> np.ndarray:
      )
      ridge.fit(data, vectors)
      return ridge.coef_.T
-
-
-def learn_encoder(voxels, vectors) -> np.ndarray:
-    """ Given voxels (a CxV matrix of V voxel activations per C concepts)
-    and vectors (a CxD matrix of D semantic dimensions per C concepts)
-    find a matrix M such that the dot product of a D-dimensional semantic vector
-    and M gives a V-dimensional encoded voxel activations.
-    
-    The matrix M is learned using ridge regression.
-    """
-    ridge = sklearn.linear_model.RidgeCV(
-        alphas=[1, 10, .01, 100, .001, 1000, .0001, 10000, .00001, 100000, .000001, 1000000],
-        fit_intercept=True,
-        alpha_per_target=True,
-        gcv_mode='auto'
-    )
-    ridge.fit(vectors, voxels)
-    return ridge.coef_.T
