@@ -580,4 +580,5 @@ class VAEEncoder(nn.Module, Encoder):
         """ Encode vectors into voxel activations using the learned encoder. """
         self.eval()
         with torch.no_grad():
-            outputs, _, _ = self(torch.tensor(vectors, dtype=torch.float32))            return outputs.numpy()
+            outputs, _, _ = self(torch.tensor(vectors, dtype=torch.float32))            
+            return outputs.numpy()
