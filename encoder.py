@@ -171,12 +171,45 @@ class RidgeEncoder(Encoder):
         """ Encode vectors into voxel activations using the learned encoder. """
         return self.ridge.predict(vectors)
 
+class CorrelationLoss(nn.Module):
+    """
+    Loss function that computes 1 - Pearson correlation coefficient as the loss.
+    """
+    def __init__(self, epsilon=1e-8):
+        super(CorrelationLoss, self).__init__()
+        self.epsilon = epsilon
+
+    def forward(self, pred, target):
+        pred = pred - pred.mean(dim=1, keepdim=True)
+        target = target - target.mean(dim=1, keepdim=True)
+        pred_norm = pred / (pred.norm(dim=1, keepdim=True) + self.epsilon)
+        target_norm = target / (target.norm(dim=1, keepdim=True) + self.epsilon)
+        corr = (pred_norm * target_norm).sum(dim=1)
+        return 1 - corr.mean()
+
 class FCEncoder(nn.Module, Encoder):
-    def __init__(self, input_dim, output_dim, seed=3):
+    def __init__(self, input_dim, output_dim, seed=3, metric='mse', epsilon=1e-8):
+        """ 
+        A simple fully connected encoder. 
+        
+        Args:
+            input_dim (int): The dimension of the input semantic vectors.
+            output_dim (int): The dimension of the output voxel activations.
+            seed (int): Random seed for reproducibility.
+            metric (str): Loss function to use ('mse' or 'corr' for pearson correlation). Default is 'mse'.
+            epsilon (float): Small value to avoid division by zero. Default is 1e-8.
+        Raises:
+            ValueError: If the metric is not 'mse' or 'corr'.
+        """
+        if metric not in ['mse', 'corr']:
+            raise ValueError("Metric must be 'mse' or 'corr'.")
+
         super(FCEncoder, self).__init__()
         self.seed = seed
         np.random.seed(seed)
         torch.manual_seed(seed)
+        self.metric = metric
+        self.epsilon = epsilon
         self.fc = nn.Linear(input_dim, output_dim)
 
     def forward(self, x):
@@ -191,7 +224,11 @@ class FCEncoder(nn.Module, Encoder):
         The matrix M is learned using a simple neural network.
         """
         
-        criterion = nn.MSELoss()
+        # Define the loss function based on the metric
+        if self.metric == 'mse':
+            criterion = nn.MSELoss()
+        elif self.metric == 'corr':
+            criterion = CorrelationLoss(self.epsilon)
         optimizer = optim.Adam(self.parameters(), lr=learning_rate)
 
         for epoch in range(epochs):
@@ -210,11 +247,29 @@ class FCEncoder(nn.Module, Encoder):
         
 class FC2Encoder(nn.Module, Encoder):
     """ A more complicated encoder using fully connected layers. """
-    def __init__(self, input_dim, output_dim, seed=3):
+    def __init__(self, input_dim, output_dim, seed=3, metric='mse', epsilon=1e-8):
+        """
+        Initialize the FC2Encoder.
+
+        Args:
+            input_dim (int): The dimension of the input semantic vectors.
+            output_dim (int): The dimension of the output voxel activations.
+            seed (int): Random seed for reproducibility.
+            metric (str): Loss function to use ('mse' or 'corr' for pearson correlation). Default is 'mse'.
+            epsilon (float): Small value to avoid division by zero. Default is 1e-8.
+        
+        Raises:
+            ValueError: If the metric is not 'mse' or 'corr'.
+        """
+        if metric not in ['mse', 'corr']:
+            raise ValueError("Metric must be 'mse' or 'corr'.")
+
         super(FC2Encoder, self).__init__()
         self.seed = seed
         np.random.seed(seed)
         torch.manual_seed(seed)
+        self.metric = metric
+        self.epsilon = epsilon
         self.fc1 = nn.Linear(input_dim, (input_dim + output_dim) // 2)
         self.fc2 = nn.Linear((input_dim + output_dim) // 2, output_dim)
 
@@ -226,7 +281,12 @@ class FC2Encoder(nn.Module, Encoder):
 
     def learn_encoder(self, voxels, vectors, epochs=1000, learning_rate=0.01):
         """ Learn the encoder using fully connected layers. """
-        criterion = nn.MSELoss()
+
+        # Define the loss function based on the metric
+        if self.metric == 'mse':
+            criterion = nn.MSELoss()
+        elif self.metric == 'corr':
+            criterion = CorrelationLoss(self.epsilon)
         optimizer = optim.Adam(self.parameters(), lr=learning_rate)
 
         for epoch in range(epochs):
@@ -316,12 +376,31 @@ class ResidualEncoder(nn.Module, Encoder):
 
 class AttentionEncoder(nn.Module, Encoder):
     """ Encoder with attention mechanism to focus on important semantic dimensions. """
-    def __init__(self, input_dim, output_dim, num_heads=None, seed=3):
+    def __init__(self, input_dim, output_dim, num_heads=None, seed=3, metric='mse', epsilon=1e-8):
+        """
+        Initialize the AttentionEncoder.
+
+        Args:
+            input_dim (int): The dimension of the input semantic vectors.
+            output_dim (int): The dimension of the output voxel activations.
+            num_heads (int, optional): Number of attention heads. If None, will be calculated dynamically based on input_dim.
+            seed (int): Random seed for reproducibility.
+            metric (str): Loss function to use ('mse' or 'corr' for pearson correlation). Default is 'mse'.
+            epsilon (float): Small value to avoid division by zero. Default is 1e-8.
+        
+        Raises:
+            ValueError: If the metric is not 'mse' or 'corr'.
+        """
+        if metric not in ['mse', 'corr']:
+            raise ValueError("Metric must be 'mse' or 'corr'.")
+
         super(AttentionEncoder, self).__init__()
         self.seed = seed
         np.random.seed(seed)
         torch.manual_seed(seed)
-        
+
+        self.metric = metric
+        self.epsilon = epsilon
         self.input_dim = input_dim
         self.output_dim = output_dim
         
@@ -372,7 +451,13 @@ class AttentionEncoder(nn.Module, Encoder):
 
     def learn_encoder(self, voxels, vectors, epochs=2000, learning_rate=0.0005):
         """ Learn the encoder with attention mechanism. """
-        criterion = nn.MSELoss()
+
+        # Define the loss function based on the metric
+        if self.metric == 'mse':
+            criterion = nn.MSELoss()
+        elif self.metric == 'corr':
+            criterion = CorrelationLoss(epsilon=self.epsilon)
+
         optimizer = optim.AdamW(self.parameters(), lr=learning_rate, weight_decay=1e-4)
         scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
 
