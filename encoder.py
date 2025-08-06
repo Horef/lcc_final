@@ -50,7 +50,7 @@ def init_and_train_encoder(enc, voxels, vectors, **kwargs):
 
     return model
 
-def test_encoder(enc, voxels, vectors, fold_n, seed=3, ext_test=False, ext_test_voxels=None, ext_test_vectors=None, **kwargs):
+def test_encoder(enc, voxels, vectors, fold_n, seed=3, ext_test=False, ext_test_voxels=None, ext_test_vectors=None, normalize=False, **kwargs):
     """
     Used to test an encoder on a dataset using k-fold cross-validation.
     Args:
@@ -62,6 +62,7 @@ def test_encoder(enc, voxels, vectors, fold_n, seed=3, ext_test=False, ext_test_
         ext_test (bool): If True, will use external test set, which should be passed in `ext_test_voxels` and `ext_test_vectors`.
         ext_test_voxels (np.ndarray, optional): External test voxel activations.
         ext_test_vectors (np.ndarray, optional): External test semantic vectors.
+        normalize (bool): If True, normalizes accuracy scores.
         **kwargs: Additional keyword arguments for encoder initialization.  (Will be passed to the encoder's constructor.)
     Returns:
         entity_accuracies (dict): A dictionary mapping entity IDs to their accuracy scores.
@@ -109,15 +110,16 @@ def test_encoder(enc, voxels, vectors, fold_n, seed=3, ext_test=False, ext_test_
             pred = predictions[i]
             target = test_voxels[i]
             # Compute pearson correlation with all vectors
-            correlations = np.array([scipy.stats.pearsonr(pred, vox)[0] for vox in test_voxels])
+            correlations = np.array([scipy.stats.pearsonr(pred, vox)[0] for vox in voxels])
             # Sort by similarity
             sorted_indices = np.argsort(correlations)[::-1]
             # Get the index of the target voxel vector in the sorted list
-            target_index = np.where(np.all(test_voxels[sorted_indices] == target, axis=1))[0][0] + 1
-            accuracy_scores.append(target_index / len(test_voxels))
+            target_index = np.where(np.all(voxels[sorted_indices] == target, axis=1))[0][0] + 1
+            score = target_index / len(voxels) if normalize else target_index
+            accuracy_scores.append(score)
             # Store the accuracy score for the concept
             entity_id = test_indices[i]
-            entity_accuracies[entity_id] = target_index / len(test_voxels)
+            entity_accuracies[entity_id] = score
         # Compute the average accuracy score
         avg_accuracy = np.mean(accuracy_scores)
         fold_accuracies.append(avg_accuracy)
