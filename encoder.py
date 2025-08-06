@@ -589,11 +589,29 @@ class ImprovedAttentionEncoder(nn.Module, Encoder):
 
 class VAEEncoder(nn.Module, Encoder):
     """ Variational Autoencoder-style encoder for more robust representations. """
-    def __init__(self, input_dim, output_dim, latent_dim=None, seed=3):
+    def __init__(self, input_dim, output_dim, latent_dim=None, seed=3, metric='mse', epsilon=1e-8):
+        """
+        Initialize the VAEEncoder.
+        Args:
+            input_dim (int): The dimension of the input semantic vectors.
+            output_dim (int): The dimension of the output voxel activations.
+            latent_dim (int, optional): The dimension of the latent space. If None, defaults to half the min(input_dim, output_dim).
+            seed (int): Random seed for reproducibility.
+            metric (str): Loss function to use ('mse' or 'corr' for pearson correlation). Default is 'mse'.
+            epsilon (float): Small value to avoid division by zero. Default is 1e-8.
+        Raises:
+            ValueError: If the metric is not 'mse' or 'corr'.
+        """
+        if metric not in ['mse', 'corr']:
+            raise ValueError("Metric must be 'mse' or 'corr'.")
+        
         super(VAEEncoder, self).__init__()
         self.seed = seed
         np.random.seed(seed)
         torch.manual_seed(seed)
+
+        self.metric = metric
+        self.epsilon = epsilon
         
         if latent_dim is None:
             latent_dim = min(input_dim, output_dim) // 2
@@ -647,7 +665,10 @@ class VAEEncoder(nn.Module, Encoder):
             outputs, mu, logvar = self(torch.tensor(vectors, dtype=torch.float32))
             
             # Reconstruction loss
-            recon_loss = nn.MSELoss()(outputs, torch.tensor(voxels, dtype=torch.float32))
+            if self.metric == 'mse':
+                recon_loss = nn.MSELoss()(outputs, torch.tensor(voxels, dtype=torch.float32))
+            elif self.metric == 'corr':
+                recon_loss = CorrelationLoss(self.epsilon)(outputs, torch.tensor(voxels, dtype=torch.float32))
             
             # KL divergence loss
             kl_loss = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
