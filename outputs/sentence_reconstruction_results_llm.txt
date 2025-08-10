@@ -1,0 +1,253 @@
+--- Sentence Reconstruction Results ---
+Original: Their appearance and abilities makes them popular pets.
+Reconstructed:  sitten on mukaan yhä enemämäkin meneilla m
+Cosine Similarity: 0.4290
+Reconstruction Score: 0.6780
+
+Original: Even beginner rock climbing takes courage and strength.
+Reconstructed:  britnoyevropskayya organizaciālie strukayna
+Cosine Similarity: 0.4374
+Reconstruction Score: 0.7029
+
+Original: She has to use solid elements of design, like strong composition and lighting.
+Reconstructed:  fotoforhidrofuran in rat brain using radiol
+Cosine Similarity: 0.5162
+Reconstruction Score: 0.8443
+
+Original: Flood can be caused by heavy rain or rapid snow melt, as well as earthquakes at sea.
+Reconstructed:  Visa Application is designed speciallyfor Chinese passport application with more efficient time on
+Cosine Similarity: 0.6796
+Reconstruction Score: 0.7451
+
+Original: When open, a window will also let air and sound through.
+Reconstructed:  with this recipe as it adds to flavour and helps thick out stock to the
+Cosine Similarity: 0.8252
+Reconstruction Score: 0.5913
+
+Original: I made a bad turn and I found myself tumbling down.
+Reconstructed:  e e e h h he is going down a road to make a big
+Cosine Similarity: 0.8807
+Reconstruction Score: 0.7470
+
+Original: Each person has his or her own response to potentially stressful situations.
+Reconstructed:  is very simple at it comes very simple in all of life we have our
+Cosine Similarity: 0.9266
+Reconstruction Score: 0.7478
+
+Original: The thick outside walls sheltered an inner courtyard hundreds of feet above the river.
+Reconstructed:  führs ein bahäkischen Bordwirtsfür
+Cosine Similarity: 0.2843
+Reconstruction Score: 0.6849
+
+Original: The claws of cats are retractable so that they keep sharp.
+Reconstructed:  is that people do the things I think of him all those things at all
+Cosine Similarity: 0.8605
+Reconstruction Score: 0.6668
+
+Original: My skis were nowhere to be found and my poles were lodged in a snow drift up the hill.
+Reconstructed:  bikavkakimi vykoni vykoti kitaika
+Cosine Similarity: 0.4658
+Reconstruction Score: 0.4109
+
+Original: A fire investigation determines if a fire was caused by accident or arson.
+Reconstructed:  fotokszinciazuschizofreniczowosoz
+Cosine Similarity: 0.2405
+Reconstruction Score: 0.5719
+
+Original: They also conduct health and wellness screenings and provide vaccines.
+Reconstructed:  in order in your health is an essential way of getting good care on campus
+Cosine Similarity: 0.8664
+Reconstruction Score: 0.7048
+
+Original: Some refrigerators can have a small compartment at freezing temperature.
+Reconstructed:  Visa Checking accounts can still only be used abroad at certain institutions if
+Cosine Similarity: 0.7723
+Reconstruction Score: 0.6372
+
+Original: An artist's eye is not a camera lens that has to record everything within its field of vision.
+Reconstructed:  fototyramidoketotikästä ei tarjon
+Cosine Similarity: 0.4402
+Reconstruction Score: 0.8059
+
+Original: Orange juice is often drunk at breakfast from a glass.
+Reconstructed:  is used extensively across Europe by non health workers at risk occupation with good communication
+Cosine Similarity: 0.7972
+Reconstruction Score: 0.7837
+
+Original: Lettuce is a biennial plant often grown in temperate climates as a leaf vegetable.
+Reconstructed:  is an annual festival organized to raise fund in South Africa every autumn or early
+Cosine Similarity: 0.7555
+Reconstruction Score: 0.6858
+
+Original: Pharmacists must have professional degrees and pass two exams in order to be licensed.
+Reconstructed:  is considered by researchers on par for an adequate and standardized training to obtain certification
+Cosine Similarity: 0.8002
+Reconstruction Score: 0.8602
+
+Original: Her job is not just about singing.
+Reconstructed:  is not about me trying or attempting too hard a job of trying not only
+Cosine Similarity: 0.9047
+Reconstruction Score: 0.7886
+
+Original: They signed their work, decided on its subject and imagery, and established a personal relationship with their patrons.
+Reconstructed:  fotodietnimi fizişim ve ezihiyet
+Cosine Similarity: 0.3536
+Reconstruction Score: 0.7374
+
+Original: There are everyday stresses, like being stuck in traffic.
+Reconstructed:  is just like in normal day of being on time and never having traffic or
+Cosine Similarity: 0.9376
+Reconstruction Score: 0.8666
+
+Original: Gambling was something I had to do, and I had already spent close to $10,000 doing it.
+Reconstructed:  bahut kecil aku kena takkan takkan gue
+Cosine Similarity: 0.5733
+Reconstruction Score: 0.5858
+
+Original: The food is cooked on oil covering the bottom of the pan.
+Reconstructed:  fotodietnimi nafotondatkimi unut
+Cosine Similarity: 0.3669
+Reconstruction Score: 0.8175
+
+Original: Orange juice has a sweet, acid taste and contains a lot of vitamin C.
+Reconstructed:  bahir aynı təbiliqi gönüç
+Cosine Similarity: 0.3484
+Reconstruction Score: 0.4781
+
+Original: Frying pans are made of iron or teflon-clad steel.
+Reconstructed:  fotofenaphthoquine versus primafloxasil
+Cosine Similarity: 0.3562
+Reconstruction Score: 0.9343
+
+Original: New ear piercings can become infected if they're not carefully cleaned.
+Reconstructed:  fredskædmedtredjedekædtekæ
+Cosine Similarity: 0.2602
+Reconstruction Score: 0.5753
+
+Original: Each morning, participants in the study had to write down their dream experience from the previous night.
+Reconstructed:  in his letter written on his birthstone watch from India by hand at least
+Cosine Similarity: 0.8744
+Reconstruction Score: 0.6948
+
+Original: The severity of the crime depends on whether people were harmed.
+Reconstructed:  fotodietnimi nagadimi unutradiklam
+Cosine Similarity: 0.3135
+Reconstruction Score: 0.7982
+
+Original: Cats like to groom themselves by licking their fur.
+Reconstructed:  mielintähdyksi ymminkellän yhtiÃäl
+Cosine Similarity: 0.2617
+Reconstruction Score: 0.7801
+
+Original: A mitten is a kind of glove where the four fingers are covered together.
+Reconstructed:  rånar i störsten och lite bortsomstans
+Cosine Similarity: 0.4914
+Reconstruction Score: 0.9157
+
+Original: Others speculate that ramps zigzagged up the exterior walls of the pyramid.
+Reconstructed:  The following three subclavian artery branch pattern of PSSRCTR
+Cosine Similarity: 0.6954
+Reconstruction Score: 0.6777
+
+Original: Blacksmiths make objects like weapons, horse shoes or iron furniture.
+Reconstructed: Tamogotakūhira was originally composed on a Buddhist text
+Cosine Similarity: 0.7006
+Reconstruction Score: 0.6557
+
+Original: Spears are weapons that consist of a pole and sharpened head at one end.
+Reconstructed:  Votovoaivuste ei osu käsi asutusp
+Cosine Similarity: 0.4024
+Reconstruction Score: 0.4632
+
+Original: Another type of bed is the hammock, a fabric sling suspended above the ground.
+Reconstructed:  fizzy in a small bar or on your hotel breakfast window for extra
+Cosine Similarity: 0.7625
+Reconstruction Score: 0.6854
+
+Original: Salmon is the most common farmed fish, though it can also be caught in the wild.
+Reconstructed: Tai chi has also emerged more than twice a day than it typically air
+Cosine Similarity: 0.7369
+Reconstruction Score: 0.6105
+
+Original: I know it's cliche, but I love the impact that I have on lives of my patients.
+Reconstructed:  is known with such confidence as this author and her staff at ICI that
+Cosine Similarity: 0.9138
+Reconstruction Score: 0.8940
+
+Original: All of the boys on the trip were new to rock climbing.
+Reconstructed:  of all their fellow tribes on an ancient Greek trading carvajig on
+Cosine Similarity: 0.8644
+Reconstruction Score: 0.8000
+
+Original: In my dream, it's the day of my final exam and I suddenly realize I've never gone to class.
+Reconstructed:  in my life that my daughter had just finished her final examination that the day
+Cosine Similarity: 0.9426
+Reconstruction Score: 0.9030
+
+Original: The sharp blades underneath the lawn mower precisely sever each blade of grass.
+Reconstructed:  The best things will go away forever The dark shadows fall They turn the grass
+Cosine Similarity: 0.8736
+Reconstruction Score: 0.6802
+
+Original: Images, feelings, stories, and strange combinations of characters and places can fill our dreams.
+Reconstructed:  The story and characters you loved most recently can inspire new worlds or revisit familiar
+Cosine Similarity: 0.9258
+Reconstruction Score: 0.8948
+
+Original: Spectacular castles in dramatic locations provide a record of the stormy history of many regions.
+Reconstructed:  fotórak meg tükenye gösteremeye içme
+Cosine Similarity: 0.3408
+Reconstruction Score: 0.8290
+
+Original: Computers have been used in art for a long time by experimental artists.
+Reconstructed:  freddøjtedrinnærkelsespodefort
+Cosine Similarity: 0.1950
+Reconstruction Score: 0.4087
+
+Original: Floors may be made of bare concrete, tile, linoleum or wooden floorboards.
+Reconstructed:  sääliksi on myös toivo seiksemmin käteenä
+Cosine Similarity: 0.4178
+Reconstruction Score: 0.8387
+
+Original: The blubber in a whale serves as an energy reservoir and as insulation.
+Reconstructed:  sizzle the sordid events from the snotting nappy
+Cosine Similarity: 0.8092
+Reconstruction Score: 0.7936
+
+Original: It can be hard to climb stairs or ride a bike in a dress.
+Reconstructed:  Votientä ei oma konsuliasta vaan suuri
+Cosine Similarity: 0.4433
+Reconstruction Score: 0.6261
+
+Original: A bicycle is a vehicle with two wheels and pedals on a frame.
+Reconstructed:  mielikkapeksi käymissällöksem misslycksa
+Cosine Similarity: 0.1511
+Reconstruction Score: 0.6787
+
+Original: In buildings the floor often has pipes and electrical wiring under it.
+Reconstructed: Tumor resection by radical intent should generally occur at centers specialitaires pour
+Cosine Similarity: 0.6911
+Reconstruction Score: 0.7341
+
+Original: Her blindness was caused by a genetic condition that slowly damaged the eyes.
+Reconstructed:  is still very hard due mainly a fact I havenÂÂâœbeen
+Cosine Similarity: 0.7911
+Reconstruction Score: 0.6959
+
+Original: A range of mountains forms due to tectonic plate collision.
+Reconstructed:  fizhouned a tahini in your tandie t
+Cosine Similarity: 0.5706
+Reconstruction Score: 0.6211
+
+Original: A refrigerator is a cooling device used to contain and preserve food.
+Reconstructed:  Visa Status Requireings Are Being Overthwart in order of Prejud
+Cosine Similarity: 0.6098
+Reconstruction Score: 0.6102
+
+Original: Much of their training is conducted underwater.
+Reconstructed:  The story begins and concludes a bit more quietly with The Fright Strik
+Cosine Similarity: 0.8716
+Reconstruction Score: 0.6458
+
+Average Cosine Similarity: 0.6146
+Average Reconstruction Score: 0.7117
